@@ -11,4 +11,4 @@ https://asciinema.org/a/Z6UXjOdu2C3rV85o4f22sNnLR - The first game "Ever or odd"
 
  https://asciinema.org/a/uZDer8KiXcofY3LejP28fdh5k - The fourth game "Arithmetic Progression"
 
- 
+ https://asciinema.org/a/ymHfzlVN2vRa89finslE1citn - The fifth game "Is prime"

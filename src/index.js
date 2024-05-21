@@ -1,40 +1,42 @@
+export const correct = () => console.log('Correct!');
 
-    export const correct = () => console.log('Correct!');
+export const wrongAnswer = (wrongResult, correctResult, name) => console.log(`${wrongResult} is wrong answer ;(. Correct answer was ${correctResult}.\nLet's try again, ${name}!`);
 
-    export const wrongAnswer = (wrongResult, correctResult, name) => 
-        console.log(`${wrongResult} is wrong answer ;(. Correct answer was ${correctResult}.\nLet's try again, ${name}!`);
+export const num = () => Math.floor(Math.random() * 100);
 
-    export const num = () => Math.floor(Math.random()*100);
+export const numUpTo10 = () => Math.floor(Math.random() * 10);
 
-    export const numUpTo10 = () => Math.floor(Math.random()*10);
+export const indexRandom = () => Math.floor(Math.random() * 9);
 
-    export const indexRandom = () => Math.floor(Math.random()*9);
-    
-    let lookingItem;
+const state = {
+  lookingItem: null,
+};
 
-    export const getRndArifmeticProgr = () => {
-        let firstNum = numUpTo10();
-        let difference = numUpTo10();
-        const itemRandom = indexRandom();
-        const arrLength = 10;
-        let arr = [];
-    
-        for (let i = 0; i < arrLength; i += 1) {
-            arr.push(firstNum + i * difference);
-        }
+export const getRndArifmeticProgr = () => {
+  const firstNum = numUpTo10();
+  const difference = numUpTo10();
+  const itemRandom = indexRandom();
+  const arrLength = 10;
+  const arr = [];
 
-        lookingItem = arr[itemRandom];
-        
-        arr[itemRandom] = '..';
-    
-        return arr.join(' ');
-    };
+  for (let i = 0; i < arrLength; i += 1) {
+    arr.push(firstNum + i * difference);
+  }
 
-    export {lookingItem};
+  state.lookingItem = arr[itemRandom];
+  arr[itemRandom] = '..';
 
-    export const win = (playersName) => console.log(`Congratulations, ${playersName}!`);
-    
+  return arr.join(' ');
+};
 
+export const getLookingItem = () => state.lookingItem;
 
+export const win = (playersName) => console.log(`Congratulations, ${playersName}!`);
 
-
+export function isPrime(integer) {
+  if (integer <= 1) return false;
+  for (let i = 2; i < integer; i += 1) {
+    if (integer % i === 0) return false;
+  }
+  return true;
+}

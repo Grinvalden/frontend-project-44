@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import calculate from '../src/games/calc.js';
 import { greeting } from '../src/cli.js';
+import prime from '../src/games/prime.js';
 
 greeting();
-calculate();
+prime();

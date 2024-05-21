@@ -1,26 +1,25 @@
 import readlineSync from 'readline-sync';
 import { name } from '../cli.js';
 import {
-  correct, wrongAnswer, num, win,
+  correct, wrongAnswer, num, win, isPrime,
 } from '../index.js';
 
-const evenOrOdd = () => {
+const prime = () => {
   let generatedNumber;
   let enterResult;
 
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+
   for (let i = 0; i < 3; i += 1) {
     console.log(`Question: ${generatedNumber = num()}`);
     enterResult = readlineSync.question('Your answer: ');
-    if ((generatedNumber % 2 === 0) && (enterResult === 'yes')) {
-      correct();
-    } else if ((generatedNumber % 2 !== 0) && (enterResult === 'no')) {
+    if (isPrime(generatedNumber) && (enterResult === 'yes')) {
       correct();
     } else {
-      if (generatedNumber % 2 !== 0) {
+      if (!isPrime(generatedNumber) && (enterResult === 'yes')) {
         return wrongAnswer(enterResult, 'no', name);
       }
-      if (generatedNumber % 2 === 0) {
+      if (isPrime(generatedNumber) && (enterResult === 'no')) {
         return wrongAnswer(enterResult, 'yes', name);
       }
     }
@@ -28,4 +27,4 @@ const evenOrOdd = () => {
   return win(name);
 };
 
-export default evenOrOdd;
+export default prime;
