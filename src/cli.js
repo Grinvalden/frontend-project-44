@@ -1,7 +1,11 @@
 import readlineSync from 'readline-sync';
 /* eslint-disable */
-export const greeting = (name) => {
+let name;
+export const greeting = () => {
   console.log('Welcome to the Brain Games!');
-  name = readlineSync.question('May I have you name?');
+  name = readlineSync.question('May I have you name? ');
   console.log(`Hello, ${name}!`);
 };
+export  {name};
+
+
