@@ -5,26 +5,21 @@ import {
 } from '../index.js';
 
 const evenOrOdd = () => {
-  let generatedNumber;
-  let enterResult;
-
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
+
   for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${generatedNumber = num()}`);
-    enterResult = readlineSync.question('Your answer: ');
-    if ((generatedNumber % 2 === 0) && (enterResult === 'yes')) {
-      correct();
-    } else if ((generatedNumber % 2 !== 0) && (enterResult === 'no')) {
+    const generatedNumber = num();
+    console.log(`Question: ${generatedNumber}`);
+    const enterResult = readlineSync.question('Your answer: ');
+    const correctAnswer = (generatedNumber % 2 === 0) ? 'yes' : 'no';
+
+    if (enterResult === correctAnswer) {
       correct();
     } else {
-      if (generatedNumber % 2 !== 0) {
-        return wrongAnswer(enterResult, 'no', name);
-      }
-      if (generatedNumber % 2 === 0) {
-        return wrongAnswer(enterResult, 'yes', name);
-      }
+      return wrongAnswer(enterResult, correctAnswer, name);
     }
   }
+
   return win(name);
 };
 

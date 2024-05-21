@@ -40,3 +40,12 @@ export function isPrime(integer) {
   }
   return true;
 }
+
+export const getGCD = (a, b) => {
+  let x = a;
+  let y = b;
+  while (y !== 0) {
+    [x, y] = [y, x % y];
+  }
+  return x;
+};

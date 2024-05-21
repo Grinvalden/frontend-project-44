@@ -5,25 +5,21 @@ import {
 } from '../index.js';
 
 const prime = () => {
-  let generatedNumber;
-  let enterResult;
-
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 
   for (let i = 0; i < 3; i += 1) {
-    console.log(`Question: ${generatedNumber = num()}`);
-    enterResult = readlineSync.question('Your answer: ');
-    if (isPrime(generatedNumber) && (enterResult === 'yes')) {
+    const generatedNumber = num();
+    console.log(`Question: ${generatedNumber}`);
+    const enterResult = readlineSync.question('Your answer: ');
+    const correctAnswer = isPrime(generatedNumber) ? 'yes' : 'no';
+
+    if (enterResult === correctAnswer) {
       correct();
     } else {
-      if (!isPrime(generatedNumber) && (enterResult === 'yes')) {
-        return wrongAnswer(enterResult, 'no', name);
-      }
-      if (isPrime(generatedNumber) && (enterResult === 'no')) {
-        return wrongAnswer(enterResult, 'yes', name);
-      }
+      return wrongAnswer(enterResult, correctAnswer, name);
     }
   }
+
   return win(name);
 };
 

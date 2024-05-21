@@ -5,14 +5,13 @@ import {
 } from '../index.js';
 
 const calculate = () => {
-  let num1;
-  let num2;
+  let num1 = num();
+  let num2 = num();
   let rightResult = Math.floor(num1 + num2);
   console.log('What is the result of the expression?');
 
-  num1 = num();
-  num2 = num();
   console.log(`Question: ${num1} + ${num2}`);
+
   let enterResult = readlineSync.question('Your answer: ');
 
   if (rightResult === Math.floor(enterResult)) {
